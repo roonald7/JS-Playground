@@ -16,23 +16,24 @@
     </style>
 </head>
 <body>
-    <canvas id="screen" width="10" height="10"></canvas>
-
+    <canvas id="screen" width="20" height="20"></canvas>
+    
     <script type="module">
         console.log(`Starting Client`)
         import createSubject from './observer/subject.js'
         import createKeyboardListener from './observer/keyboard-listener.js'
         import renderScreen from './render-screen.js'
         import createGame from './game.js'
-        
-        const screen = document.getElementById('screen')
+        import createGameListener from './observer/game-listener.js'
 
+        const screen = document.getElementById('screen')
         const game = createGame(screen)
 
         const subject = createSubject()
+        const gameListener = createGameListener(game.movePlayer, subject)
         const keyboardListener = createKeyboardListener(document, subject)
-
+        
         renderScreen(screen, game, requestAnimationFrame)
-
+        
     </script>
 </body>

@@ -6,11 +6,11 @@ export default function renderScreen(screen, game, requestAnimationFrame) {
     context.fillRect(game.state.player.x, game.state.player.y, 1, 1) // adicionar variavel width/height to player
 
     context.fillStyle = 'yellow' // adicionar variavel color para o PLAYER
-    context.fillRect(game.state.objective.x, game.state.objective.y, 1, 1) // adicionar variavel width/height to objective
+    context.fillRect(game.state.objectives.x, game.state.objectives.y, 1, 1) // adicionar variavel width/height to objectives
 
     for (const enemyId in game.state.enemies) {
         if (Object.hasOwnProperty.call(game.state.enemies, enemyId)) {
-            const element = game.state.enemies[enemyId];
+            const enemy = game.state.enemies[enemyId];
             context.fillStyle = enemy.color
             context.fillRect(enemy.x, enemy.y, 1, 1) // adicionar variavel width/height to enemy
         }
